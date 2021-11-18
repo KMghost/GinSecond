@@ -7,9 +7,10 @@ import (
 	"net/http"
 )
 
+// binding:"required" 修饰的字段，若接收为空值，则报错，是必须字段
 type User struct {
-	Name     string `json:"name"`
-	Password int64  `json:"password"`
+	Name     string `json:"name" binding:"required"`
+	Password int64  `json:"password" binding:"required"`
 }
 
 func Login1(c *gin.Context) {
