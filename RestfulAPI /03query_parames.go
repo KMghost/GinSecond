@@ -67,7 +67,6 @@ func main() {
 	// POST
 
 	// 普通获取
-
 	r.POST("/", func(c *gin.Context) {
 		c.String(200, c.PostForm("wechat"))
 	})
