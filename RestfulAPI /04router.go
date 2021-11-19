@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,7 +21,9 @@ func main() {
 		})
 	}
 
-	v2Group := r.Group("/v2")
+	v2Group := r.Group("/v2", func(c *gin.Context) {
+		fmt.Println("中间件")
+	})
 	{
 		v2Group.GET("/users", func(c *gin.Context) {
 			c.String(200, "/v2/users")
